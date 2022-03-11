@@ -1,11 +1,10 @@
 const express = require("express");
 const axios = require("axios");
 const path = require("path");
-const { request } = require("http");
-const { response } = require("express");
 const app = express();
 app.set("view engine", "ejs");
 app.use(express.static("public"));
+
 
 
 app.get("/signup", (request, response) =>{
