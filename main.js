@@ -19,16 +19,16 @@ app.get("/", (request, response) =>{
     response.redirect("signin")
 })
 
-app.post("/profil", (request, response)=>{
-    let user = {
-        name: request.body.name,
-    };
-    axios.post("https://ski-api.herokuapp.com/signup", user)
-    .then(resultat =>   {
-        console.log(resultat.data);
-        response.send(resultat.data)})
-    .catch(erreur => response.send("Erreur"))
-})
+// app.post("/profil", (request, response)=>{
+//     let user = {
+//         name: request.body.name,
+//     };
+//     axios.post("https://ski-api.herokuapp.com/signup", user)
+//     .then(resultat =>   {
+//         console.log(resultat.data);
+//         response.send(resultat.data)})
+//     .catch(erreur => response.send("Erreur"))
+// })
 
 app.listen(3000, ()=>{
     console.log("Votre serveur demarre par la porte 3000")
