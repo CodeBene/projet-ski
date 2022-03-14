@@ -4,6 +4,8 @@ const path = require("path");
 const app = express();
 app.set("view engine", "ejs");
 app.use(express.static("public"));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 
 
@@ -19,16 +21,53 @@ app.get("/", (request, response) =>{
     response.redirect("signin")
 })
 
-// app.post("/profil", (request, response)=>{
-//     let user = {
-//         name: request.body.name,
-//     };
-//     axios.post("https://ski-api.herokuapp.com/signup", user)
-//     .then(resultat =>   {
-//         console.log(resultat.data);
-//         response.send(resultat.data)})
-//     .catch(erreur => response.send("Erreur"))
-// })
+//app.post("https://ski-api.herokuapp.com/signin"),
+
+app.post("/signin", (request, response)=>{
+    console.log(request);
+    const email = request.body.email;
+    const password = request.body.password;
+
+    var data = '{"email":"'+ email+'","password":"' +password+'"}';
+    var config = {
+        method: 'post',
+        url: 'https://ski-api.herokuapp.com/login',
+        headers: {'Content-Type': 'application/json'},
+        data : data
+    };
+
+axios(config)
+.then(function (res) {
+    response.render("profil", res.data)
+    //console.log(JSON.stringify(res.data));
+})
+.catch(function (error) {
+  console.log(error);
+});
+})
+
+app.post("/signup", (request, response)=>{
+    const name = request.body.name;
+    const email = request.body.email;
+    const password = request.body.password;
+
+    var data = '{"name":"'+name+'","email":"'+ email+'","password":"' +password+'"}';
+
+    var config = {
+        method: 'post',
+        url: 'https://ski-api.herokuapp.com/signup',
+        headers: {'Content-Type': 'application/json'},
+        data : data
+    };
+    axios(config)
+    .then(function (res) {
+    response.render("profil", res.data)
+    //console.log(JSON.stringify(res.data));
+})
+    .catch(function (error) {
+    console.log(error);
+});
+})
 
 app.listen(3000, ()=>{
     console.log("Votre serveur demarre par la porte 3000")

@@ -5,35 +5,12 @@
     <title>Document</title>
 </head>
 <body>
-    <script>
 
-     function signup () {
-        const nameValue = document.getElementById("nameSignup").value;
-        const emailValue = document.getElementById("emailSignup").value;
-        const passwordValue = document.getElementById("passwordSignup").value;
-        if(!!nameValue && !!emailValue && !!passwordValue){
-            const data = {'Nom': 'nameValue', 'Email': 'emailValue', 'Password': 'passwordValue'};
-            console.log(data);
-        var config = {
-            method: 'post',
-            url: 'https://ski-api.herokuapp.com/signup',
-            headers: { },
-            data : data
-          };
-          axios(config)
-    .then(function (response) {
-    console.log(JSON.stringify(response.data));
-})
-.catch(function (error) {
-  console.log(error);
-})}; 
-</script>
-
-    <form method="get" action="/profil">
-        <input id="nameSignup" name="name" type="text" placeholder="Votre Nom">
-        <input id="emailSignup" name="email" type="email" placeholder="Votre mail">
-        <input id="passwordSignup" name="password" type="password" placeholder="Password">
-        <button onclick="signup()">S'inscrire</button>
+    <form method="post" action="/signup">
+        <input name="name" type="text" placeholder="Votre Nom">
+        <input name="email" type="email" placeholder="Votre mail">
+        <input name="password" type="password" placeholder="Password">
+        <button type="submit">S'inscrire</button>
     </form>
 </body>
 </html>
