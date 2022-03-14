@@ -42,7 +42,7 @@ axios(config)
     //console.log(JSON.stringify(res.data));
 })
 .catch(function (error) {
-  console.log(error);
+  response.send("Désolé, vous n'avez pas un compte, merci de vous s'inscrire");
 });
 })
 
