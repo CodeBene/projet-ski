@@ -36,7 +36,7 @@ app.post("/signin", (request, response)=>{
         data : data
     };
 
-axios(config) gggg
+axios(config)
 .then(function (res) {
     response.render("profil", res.data)
     //console.log(JSON.stringify(res.data));
