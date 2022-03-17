@@ -1,8 +1,8 @@
 @font-face { 
-    font-family: Roboto; src: url('./fonts/Roboto-Light.ttf'); 
+    font-family: Roboto; src: url(../fonts/Roboto-Light.ttf); 
 }   
 @font-face { 
-    font-family: Quicksand; src: url('./fonts/Quicksand-Light.ttf'); 
+    font-family: Quicksand; src: url(../fonts/Quicksand-Light.ttf); 
 } 
 * {
     margin: 0;
@@ -15,6 +15,10 @@ body {
     font-size: 18px;   
     color: #525B64;
 }
+h1 {
+    font-size: 36px;
+    padding-bottom: 30px;
+}
 a {
     color: #525B64;
 }
@@ -23,11 +27,11 @@ a:hover {
 }
 
 /* Pages de connexion & inscription */
-.pageConnexion > div {
+.pageConnexion {
     width: 100%;
     height: 100%;
     padding: 0;
-    background-image: url(./img/imgSkieurs.png);
+    background-image: url(../images/imgSkieurs.png);
     background-size: cover;
     background-repeat: no-repeat;
     background-color: #A4B8C9;
@@ -38,11 +42,11 @@ a:hover {
 }
 .pageConnexion header {
     margin: 40px 40px 0 40px;
-    width: 430px;
+    width: 400px;
 }
 .pageConnexion header p {
     font-family: Quicksand, sans-serif;
-    font-size: 144px;   
+    font-size: 154px;   
     line-height: 110px;
 }
 .pageConnexion header p::first-line { 
@@ -52,13 +56,9 @@ a:hover {
     margin: 80px 60px;
     padding: 30px;
     width: 470px;
-    /* height: 300px; */
+
     background-color: rgba(255, 255, 255, 0.51);
     border-radius: 20px;
-}
-.pageConnexion main h1 {
-    font-size: 36px;
-    padding-bottom: 30px;
 }
 .pageConnexion form {
     display: flex;
@@ -89,13 +89,26 @@ a:hover {
     width: 100%;
     height: 280px;
     padding: 0;
-    background-image: url(./img/imgHeader.png);
+    background-image: url(../images/imgHeader.png);
     background-size: cover;
     background-repeat: no-repeat;
     background-color: #A4B8C9;
     background-position: center;
     display: flex;
     align-items: flex-start;
+}
+.pageProfil header p {
+    font-family: Quicksand, sans-serif;
+    font-size: 104px;   
+    line-height: 75px;
+    width: 360px;
+    padding-top: 90px;
+    padding-left: 30px;
+    color: #ffffff;
+    text-shadow: 0.02em 0.02em 0.05em rgb(78, 78, 78);
+}
+.pageProfil header p::first-line { 
+    font-size: 56px;  
 }
 .pageProfil main {
     padding: 10px;
@@ -104,6 +117,7 @@ a:hover {
 }
 .pageProfil article {
     background: #F6F4F5;
+    padding: 20px;
 }
 .pageProfil article:first-child {
     margin-right: 10px;
@@ -111,4 +125,12 @@ a:hover {
 }
 .pageProfil article:last-child {
     flex-grow: 0.4;
+}
+.pageProfil article div {
+ display: flex;
+}
+.pageProfil article div p:first-child {
+    margin-right: 10px;
+    margin-bottom: 10px;
+    width: 130px;
 }

@@ -21,8 +21,6 @@ app.get("/", (request, response) =>{
     response.redirect("signin")
 })
 
-//app.post("https://ski-api.herokuapp.com/signin"),
-
 app.post("/signin", (request, response)=>{
     console.log(request);
     const email = request.body.email;
@@ -39,7 +37,6 @@ app.post("/signin", (request, response)=>{
 axios(config)
 .then(function (res) {
     response.render("profil", res.data)
-    //console.log(JSON.stringify(res.data));
 })
 .catch(function (error) {
   response.send("Désolé, vous n'avez pas un compte, merci de vous s'inscrire");
@@ -62,7 +59,6 @@ app.post("/signup", (request, response)=>{
     axios(config)
     .then(function (res) {
     response.render("profil", res.data)
-    //console.log(JSON.stringify(res.data));
 })
     .catch(function (error) {
     console.log(error);
