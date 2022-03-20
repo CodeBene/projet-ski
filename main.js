@@ -38,7 +38,7 @@ app.get("/profil", (request, response) =>{
     })
     .catch(function (error) {
         console.log(token);
-        response.send("Désolé, vous n'avez pas un compte, merci de vous s'inscrire");
+        response.send(`Désolé, vous n'avez pas de compte. Merci de vous <a href="signup">inscrire</a>.`);
     });
 });
 
@@ -60,7 +60,7 @@ axios(config)
     response.redirect("/profil");
 })
 .catch(function (error) {
-  response.send("Désolé, vous n'avez pas un compte, merci de vous s'inscrire");
+  response.send(`Désolé, vous n'avez pas de compte. Merci de vous <a href="signup">inscrire</a>.`);
 });
 });
 
