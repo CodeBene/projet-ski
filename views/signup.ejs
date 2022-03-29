@@ -1,16 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr" class="pageConnexion">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>Créez votre compte | Le Happy Skieur</title>
+    <link rel="stylesheet" href="css/style.css" >
 </head>
 <body>
-
-    <form method="post" action="/signup">
-        <input name="name" type="text" placeholder="Votre Nom">
-        <input name="email" type="email" placeholder="Votre mail">
-        <input name="password" type="password" placeholder="Password">
-        <button type="submit">S'inscrire</button>
-    </form>
+        <header>
+            <p>Le&nbsp;Happy Skieur</p>
+        </header>
+        <main>
+            <h1>Créez votre compte</h1>
+            <form action="" method="post">
+                    <label for="name">Votre Nom</label>
+                    <input type="text" name="name" id="name" required="required"> 
+                    <label for="email">Adresse courriel</label>
+                    <input type="text" name="email" id="email" required="required">
+                    <label for="mdp">Mot de passe</label>
+                    <input type="password" name="password" id="mdp" required="required">
+                    <input type="submit" name="authentification" value="Créez votre compte">
+            </form>
+            <p>Vous avez déjà un compte ?<br><a href="signin" title="Se connecter à son compte Le Happy Skieur">Connectez-vous</a></p>
+        </main>
 </body>
 </html>
