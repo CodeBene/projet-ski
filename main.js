@@ -86,6 +86,46 @@ app.post("/signup", (request, response)=>{
     });
 });
 
+
+// PAGE CRÉATION D'UN SPOT
+app.get('/create', (req, res) => {
+
+    res.render('create');
+});
+
+app.post('/create', (request, response) => {
+
+    const name = request.body.name;
+    const description = request.body.description;
+    const address = request.body.adress;
+    const difficulty = request.body.difficulty;
+
+    var data = 
+        {
+            "name": name,
+            "description": description,
+            "address": address,
+            "difficulty": difficulty
+        };
+
+    var config = {
+        method: 'post',
+        url: 'https://ski-api.herokuapp.com/ski-spot',
+        headers: {'Content-Type': 'application/json'},
+        data : data
+    };
+
+    axios(config)
+
+        .then(function (res) {
+            response.redirect("create", res.data);
+        })
+
+        .catch(function (error) {
+            console.log(error);
+        });
+})
+
 app.listen(3000, ()=>{
     console.log("Votre serveur demarre par la porte 3000");
 });
