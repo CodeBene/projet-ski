@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr" class="pageProfil">
+<head>
+    <meta charset="UTF-8">
+    <title>Votre profil | Le Happy Skieur</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <p>Le&nbsp;Happy Skieur</p>
+    </header>
+    <main>
+        <article>
+            <h1>Bientôt disponible</h1>
+            <a href="/create">+</a>
+            <article>
+                <h2><a href="/profil">Aller vers la page profil</a></h2>
+                <article>
+                    <div style="display: block" >
+                    <% skiSpots.forEach(skiSpot =>{%>
+                    <p><%= skiSpot.name %></p>
+                    <p><%= skiSpot.description%></p>
+                    <p><%= skiSpot.address%></p>
+                    <p><%= skiSpot.difficulty%></p>
+                    <button><a href="/details/<%= skiSpot._id %>">Voir les details</a></button>
+                    <form action="/delete/<%= skiSpot._id %>" method="post">
+                        <button type="submit">DELETE</button>
+                    </form>
+                    <%})%>
+                    </div>
+                </article>
+            </article>
+        </article>
+        <article>       
+    </article>
+    </main>
+</body>
+</html>
