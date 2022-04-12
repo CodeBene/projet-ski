@@ -23,8 +23,8 @@
                     <p><%= skiSpot.address%></p>
                     <p><%= skiSpot.difficulty%></p>
                     <button><a href="/details/<%= skiSpot._id %>">Voir les details</a></button>
-                    <form action="/delete/<%= skiSpot._id %>" method="post">
-                        <button type="submit">DELETE</button>
+                    <form action="/delete/<%= skiSpot._id %>?_method=DELETE>" method="post">
+                        <button type="submit" >DELETE</button>
                     </form>
                     <%})%>
                     </div>

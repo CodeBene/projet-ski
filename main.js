@@ -34,6 +34,10 @@ app.post("/create", homeController.createpost);
 
 app.get("/details/:id", homeController.details);
 
+app.put("/details/:id", homeController.Update);
+
+//app.delete("/delete/:id", homeController.delete);
+
 app.listen(3000, ()=>{
     console.log("Votre serveur demarre par la porte 3000");
 });
