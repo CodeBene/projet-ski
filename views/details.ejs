@@ -5,30 +5,28 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Créer votre spot</h1>
+    <h1>Mettre à jour votre Spot</h1>
     <form method="post" action="/create">
         <div>
             <label>Nom</label>
-            <input name="name" type="text">
+            <input name="name" type="text" value="<%= skiSpot.name %>">
         </div>
         <div>
             <label>Description</label>
-            <input name="description" type="text">
+            <input name="description" type="text" value="<%= skiSpot.description %>">
         </div>
         <div>
             <label>Adresse</label>
-            <input name="address" type="text">
+            <input name="address" type="text" value="<%= skiSpot.address %>">
         </div>
         <div>
             <label>Difficulté</label>
-            <input name="difficulty" type="text">
+            <input name="difficulty" type="text" value="<%= skiSpot.difficulty %>">
         </div>
         <div>
-            <input type="submit" value="Envoyer">
+            <input type="text" value="Envoyer">
         </div>
         
-    </form>
-    
+    </form>  
 </body>
 </html>
-
