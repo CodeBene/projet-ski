@@ -25,6 +25,17 @@
                     <div class="bouton">
                         <a href="/profil" title="Accéder à son profil" class="bouton-fonce">Page de profil</a>
                         <a href="/create" title="Ajouter un site de ski" class="bouton-fonce">Ajouter un spot</a>
+                    <div style="display: block" >
+                    <% skiSpots.forEach(skiSpot =>{%>
+                    <p><%= skiSpot.name %></p>
+                    <p><%= skiSpot.description%></p>
+                    <p><%= skiSpot.address%></p>
+                    <p><%= skiSpot.difficulty%></p>
+                    <button><a href="/details/<%= skiSpot._id %>">Voir les details</a></button>
+                    <form action="/delete/<%= skiSpot._id %>?_method=DELETE>" method="post">
+                        <button type="submit" >DELETE</button>
+                    </form>
+                    <%})%>
                     </div>
 
                     <% skiSpots.forEach(skiSpot=>{%>

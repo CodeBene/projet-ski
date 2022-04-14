@@ -1,4 +1,6 @@
 const axios = require("axios"); 
+const { response } = require("express");
+const { request } = require("express");
 
 const url = require("url");
 
@@ -131,6 +133,7 @@ axios(config)
 .then(function (res) {
   response.redirect("/filActualite");
   console.log(JSON.stringify(res.data));
+
 })
 .catch(function (error) {
   console.log(error);
@@ -138,7 +141,7 @@ axios(config)
 };
 
 exports.details = (request, response)=>{
-    const id =  request.params.id ;
+    const id =  request.params.id;
 
     let token = localStorage.getItem("token");
     var config = {
@@ -150,7 +153,6 @@ exports.details = (request, response)=>{
       console.log(config)
       axios(config)
       .then(function (res) {
-          //console.log("AlLO");
           response.render("details", res.data);
           //console.log(JSON.stringify(res.data));
       })
@@ -160,8 +162,11 @@ exports.details = (request, response)=>{
       });
 };
 
-
 exports.Update = (request, response)=>{
+=======
+exports.Update = (request, response)=>{
+
+    
     const name = request.body.name;
     const description = request.body.description;
     const address = request.body.address;
@@ -196,6 +201,9 @@ exports.delete = (request, response)=>{
     const id = request.params.id; 
 
     let token = localStorage.getItem("token");
+    let id = request.params.id; 
+
+    var data = { name : name, description : description, address : address, difficulty : difficulty};
 
     var config = {
          method: 'delete',
@@ -212,5 +220,20 @@ exports.delete = (request, response)=>{
             console.log(error);
         });
     }
+    method: 'put',
+    url: 'http://ski-api.herokuapp.com/ski-spot/'+id,
+    headers: { 'Content-Type': 'application/json', 'Authorization': token },
+    data : data
+    };
 
-    
+    console.log(config)
+
+    axios(config)
+    .then(function (response) {
+    console.log(JSON.stringify(response.data));
+    })
+    .catch(function (error) {
+    console.log(error);
+    });
+}
+
