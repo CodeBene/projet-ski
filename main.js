@@ -3,10 +3,13 @@ const axios = require("axios");
 const path = require("path");
 const app = express();
 const homeController = require("./controller/homeController");
+const methodOverride = require("method-override");
+
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(methodOverride("_method"));
 
 
 if (typeof localStorage === "undefined" || localStorage === null) {
@@ -36,8 +39,8 @@ app.get("/details/:id", homeController.details);
 
 app.put("/details/:id", homeController.Update);
 
-//app.delete("/delete/:id", homeController.delete);
-
+app.delete("/delete/:id", homeController.delete);
+ 
 app.listen(3000, ()=>{
     console.log("Votre serveur demarre par la porte 3000");
 });

@@ -2,6 +2,8 @@ const axios = require("axios");
 const { response } = require("express");
 const { request } = require("express");
 
+const url = require("url");
+
 
 exports.getSignUp = (request, response) =>{
     response.render("signup")
@@ -82,17 +84,23 @@ exports.postSignUp = (request, response) =>{
     };
 
 exports.getfilActualite = (request, response)=>{
+
+    const page = url.parse(request.url, true).query.page;
+
+
     let token = localStorage.getItem("token");
     var config = {
         method: 'get',
-        url: 'http://ski-api.herokuapp.com/ski-spot/',
-        headers: { 'Content-Type': 'application/json', 'Authorization': token }
+        url: 'http://ski-api.herokuapp.com/ski-spot?page='+page+'&limit=10',
+        headers: { 'Content-Type': 'application/json', 'Authorization': token },
 
       };
+      console.log(config)
       
       axios(config)
       .then(function (res) {
-        response.render("filActualite", {skiSpots : res.data.skiSpots})
+          console.log(res.data)
+        response.render("filActualite", {skiSpots : res.data.skiSpots, totalPages : res.data.totalPages})
        //console.log(JSON.stringify(res.data));
       })
       .catch(function (error) {
@@ -123,8 +131,9 @@ exports.createpost = (request, response)=>{
 
 axios(config)
 .then(function (res) {
-  response.redirect("/filActualite")
-  //console.log(JSON.stringify(res.data));
+  response.redirect("/filActualite");
+  console.log(JSON.stringify(res.data));
+
 })
 .catch(function (error) {
   console.log(error);
@@ -144,7 +153,6 @@ exports.details = (request, response)=>{
       console.log(config)
       axios(config)
       .then(function (res) {
-         // console.log("AlLO");
           response.render("details", res.data);
           //console.log(JSON.stringify(res.data));
       })
@@ -155,6 +163,8 @@ exports.details = (request, response)=>{
 };
 
 exports.Update = (request, response)=>{
+=======
+exports.Update = (request, response)=>{
 
     
     const name = request.body.name;
@@ -163,11 +173,53 @@ exports.Update = (request, response)=>{
     const difficulty = request.body.difficulty;
 
     let token = localStorage.getItem("token");
+    var data = { name : name, description : description, address : address, difficulty : difficulty};
+
+    const id = request.params.id;
+
+    var config = {
+        method: 'put',
+        url: 'http://ski-api.herokuapp.com/ski-spot/'+id,
+        headers: { 'Content-Type': 'application/json', 'Authorization': token },
+        data : JSON.stringify(data)
+      };
+      
+      axios(config)
+      .then(function (res) {
+          response.redirect("details")
+        //console.log(JSON.stringify(response.data));
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
+}
+
+
+exports.delete = (request, response)=>{
+    
+    const id = request.params.id; 
+
+    let token = localStorage.getItem("token");
     let id = request.params.id; 
 
     var data = { name : name, description : description, address : address, difficulty : difficulty};
 
     var config = {
+         method: 'delete',
+         url: 'http://ski-api.herokuapp.com/ski-spot/'+id,
+         headers: { 'Content-Type': 'application/json', 'Authorization': token }
+        };
+        axios(config)
+        .then(function (res) {
+            response.redirect("/filActualite");
+            console.log("Bravo")
+            //console.log(JSON.stringify(res.data));
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+    }
     method: 'put',
     url: 'http://ski-api.herokuapp.com/ski-spot/'+id,
     headers: { 'Content-Type': 'application/json', 'Authorization': token },
@@ -184,3 +236,4 @@ exports.Update = (request, response)=>{
     console.log(error);
     });
 }
+
