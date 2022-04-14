@@ -1,5 +1,7 @@
 const axios = require("axios"); 
 
+const url = require("url");
+
 
 exports.getSignUp = (request, response) =>{
     response.render("signup")
@@ -80,17 +82,23 @@ exports.postSignUp = (request, response) =>{
     };
 
 exports.getfilActualite = (request, response)=>{
+
+    const page = url.parse(request.url, true).query.page;
+
+
     let token = localStorage.getItem("token");
     var config = {
         method: 'get',
-        url: 'http://ski-api.herokuapp.com/ski-spot/',
-        headers: { 'Content-Type': 'application/json', 'Authorization': token }
+        url: 'http://ski-api.herokuapp.com/ski-spot?page='+page+'&limit=10',
+        headers: { 'Content-Type': 'application/json', 'Authorization': token },
 
       };
+      console.log(config)
       
       axios(config)
       .then(function (res) {
-        response.render("filActualite", {skiSpots : res.data.skiSpots})
+          console.log(res.data)
+        response.render("filActualite", {skiSpots : res.data.skiSpots, totalPages : res.data.totalPages})
        //console.log(JSON.stringify(res.data));
       })
       .catch(function (error) {
@@ -142,9 +150,9 @@ exports.details = (request, response)=>{
       console.log(config)
       axios(config)
       .then(function (res) {
-          console.log("AlLO");
+          //console.log("AlLO");
           response.render("details", res.data);
-          console.log(JSON.stringify(res.data));
+          //console.log(JSON.stringify(res.data));
       })
       .catch(function (error) {
           console.log("Sorry")
@@ -152,8 +160,38 @@ exports.details = (request, response)=>{
       });
 };
 
-exports.delete = (request, response)=>{
 
+exports.Update = (request, response)=>{
+    const name = request.body.name;
+    const description = request.body.description;
+    const address = request.body.address;
+    const difficulty = request.body.difficulty;
+
+    let token = localStorage.getItem("token");
+    var data = { name : name, description : description, address : address, difficulty : difficulty};
+
+    const id = request.params.id;
+
+    var config = {
+        method: 'put',
+        url: 'http://ski-api.herokuapp.com/ski-spot/'+id,
+        headers: { 'Content-Type': 'application/json', 'Authorization': token },
+        data : data
+      };
+      
+      axios(config)
+      .then(function (response) {
+        console.log(JSON.stringify(response.data));
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
+}
+
+
+exports.delete = (request, response)=>{
+    
     const id = request.params.id; 
 
     let token = localStorage.getItem("token");
@@ -173,3 +211,5 @@ exports.delete = (request, response)=>{
             console.log(error);
         });
     }
+
+    

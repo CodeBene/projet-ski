@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Votre profil | Le Happy Skieur</title>
     <link rel="stylesheet" href="css/style.css">
+    
 </head>
 <body>
     <header>
@@ -23,12 +24,17 @@
                     <p><%= skiSpot.address%></p>
                     <p><%= skiSpot.difficulty%></p>
                     <button><a href="/details/<%= skiSpot._id %>">Voir les details</a></button>
-                    <form action="/delete/<%= skiSpot._id %>" method="post">
+                    <form action="/delete/<%= skiSpot._id %>?_method=DELETE" method="post">
                         <button type="submit">DELETE</button>
                     </form>
                     <%})%>
-                    </div>
+                    </div>    
                 </article>
+                <% for( var i = 1; i <= totalPages; i++){ %>
+
+                    <a href="/filActualite?limit=10&page=<%=i%>"><%= i %></a>
+
+                <%}%>
             </article>
         </article>
         <article>       
