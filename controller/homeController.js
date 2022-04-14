@@ -129,7 +129,7 @@ exports.createpost = (request, response)=>{
 
 axios(config)
 .then(function (res) {
-  response.redirect("/filActualite")
+  response.redirect("/filActualite", res.data)
   console.log(JSON.stringify(res.data));
 })
 .catch(function (error) {
@@ -176,12 +176,13 @@ exports.Update = (request, response)=>{
         method: 'put',
         url: 'http://ski-api.herokuapp.com/ski-spot/'+id,
         headers: { 'Content-Type': 'application/json', 'Authorization': token },
-        data : data
+        data : JSON.stringify(data)
       };
       
       axios(config)
-      .then(function (response) {
-        console.log(JSON.stringify(response.data));
+      .then(function (res) {
+          response.redirect("details")
+        //console.log(JSON.stringify(response.data));
       })
       .catch(function (error) {
         console.log(error);
@@ -203,9 +204,9 @@ exports.delete = (request, response)=>{
         };
         axios(config)
         .then(function (res) {
-            //response.redirect("filActualité");
+            response.redirect("/filActualite");
             console.log("Bravo")
-            console.log(JSON.stringify(res.data));
+            //console.log(JSON.stringify(res.data));
         })
         .catch(function (error) {
             console.log(error);
