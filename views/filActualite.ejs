@@ -38,13 +38,7 @@
                                 <form action="/delete/<%= skiSpot._id %>?_method=DELETE" method="post">
                                     <button type="submit" class="bouton-fonce"><img src="./images/bouton-supprimer.png" alt="Supprimer le site de ski"></button>
                                 </form>
-                                <form action="/details/<%= skiSpot._id %>" method="get">
-                                    <button>
-                                        Modifier
-                                    </button>
-
-                                </form>
-                                <!-- <a href="/details/<%= skiSpot._id %>" class="bouton-fonce"><img src="./images/bouton-editer.png" alt="Modifier le site de ski"></a> -->
+                                <a href="/details/<%= skiSpot._id %>" class="bouton-fonce"><img src="./images/bouton-editer.png" alt="Modifier le site de ski"></a>
                                 <!-- 
                                 <form action="/details/<%= skiSpot._id %>" method="post">
                                     <button type="submit"><img src="./images/bouton-editer.png" alt="Modifier le site de ski"></button>
@@ -57,7 +51,7 @@
                     <%})%>
                     <nav aria-label="Pagination des meilleurs spots de ski" class="pagination">
                         <ul class="pagination justify-content-center">
-                            <% for( var i=1; i <=totalPages; i++){ %>
+                            <% for( var i=1; i <= totalPages; i++){ %>
                             <li class="page-item">
                             <a href="/filActualite?limit=10&page=<%=i%>" class="page-link"><%= i %></a></li><%}%>
                         </ul>

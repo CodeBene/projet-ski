@@ -184,7 +184,7 @@ exports.Update = (request, response)=>{
       
       axios(config)
       .then(function (res) {
-          response.redirect("/details")
+          response.redirect("/create")
         //console.log(JSON.stringify(response.data));
       })
       .catch(function (error) {
