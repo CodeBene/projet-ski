@@ -129,7 +129,7 @@ exports.createpost = (request, response)=>{
 
 axios(config)
 .then(function (res) {
-  response.redirect("/filActualite", res.data)
+  response.redirect("/filActualite");
   console.log(JSON.stringify(res.data));
 })
 .catch(function (error) {

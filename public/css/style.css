@@ -25,6 +25,9 @@ h2 {
     color: #525B64;
     padding: 1rem 0 0.8rem 0;
 }
+h2 a {
+    text-decoration: underline;
+}
 p {
     padding-bottom: 1rem;
 }
@@ -34,21 +37,15 @@ a {
 a:hover {
     color: #6186AA;
 }
-.bouton a {
+.bouton a, 
+.bouton button {
     display: inline-block;
     margin: 1.5rem 0.7rem 0 0;
     padding: 0.5rem 0.9rem;
     width: fit-content;
     text-align: center;
     text-decoration: none;
-}
-.bouton a.marge {
-    display: inline-block;
-    margin: 0 0 0 0;
-    padding: 0.5rem 0.9rem;
-    width: fit-content;
-    text-align: center;
-    text-decoration: none;
+    font-size: 0.9rem;
 }
 .bouton-fonce {
     background-color: #525B64;
@@ -60,16 +57,14 @@ a:hover {
     color: #525B64;
     border: 1px solid #525B64;
 }
-.bouton a:hover {
+.bouton a:hover,
+.bouton button:hover {
     background-color: #6186AA;
     color: #ffffff;
     border: 1px solid #6186AA;
 }
 .align-right {
     text-align: right;
-}
-.align-center {
-    text-align: center;
 }
 .align-center {
     text-align: center;
@@ -186,10 +181,13 @@ a:hover {
     background-repeat: no-repeat;
     background-position: bottom right;
 }
+.squelette main>aside img {
+    width: 100%;
+    margin-bottom: 1.5em;
+}
 .squelette main>aside {
     width: 35%;
 }
-
 /* Page profil */
 .squelette .profil article {
     margin: 0 0 2rem 0;
@@ -209,20 +207,12 @@ a:hover {
 .squelette .feed {
     display: flex;
     flex-wrap: wrap;
-    width: 100%;
 }
 .squelette .feed h1 {
     width: 85%;
 }
-.squelette .feed>div {
-    padding: 0.3em 0 0 0;
-    width: 15%;
-}
-.squelette .feed .bouton a {
-    margin: 0;
-}
 .squelette .liste-spot {
-    width: 100%;
+    min-width: 100%;
     background: #E1E3E8;
     margin-bottom: 2em;
     padding: 1.5em;
@@ -253,6 +243,27 @@ a:hover {
 .squelette .liste-spot .description {
     width: 100%;
 }
+.squelette .feed .bouton  {
+    display: flex;
+    justify-content: flex-end;
+}
+.squelette .feed .bouton a {
+    margin: 0 0 1rem 1rem;
+}
+.squelette .liste-spot .bouton form {
+    margin: 0;
+    padding: 0;
+}
+.squelette .feed .liste-spot button, 
+.squelette .liste-spot .bouton a {
+    padding:  0.4rem 0.4rem 0.5rem;
+    margin: 0 0 0 0.4rem;
+    border: 0;
+}
+.squelette .liste-spot .bouton img {
+    width: 19px;
+    height: 19px;
+}
 .pied {
     width: 100%;
     display: flex;
@@ -267,18 +278,6 @@ a:hover {
     padding-top: 0.2rem;
     color: #8A96A0;
     font-size: 0.9rem;
-}
-.squelette .liste-spot .bouton {
-    min-width: 100px;
-    text-align: right;
-    padding: 0;
-}
-.squelette .liste-spot .bouton a {
-    margin-left: 0.4rem;
-    padding: 0.4rem 0.5rem 0.2rem;
-}
-.squelette .liste-spot .bouton img {
-    width: 19px;
 }
 
 /* Page ajout */
@@ -305,6 +304,28 @@ a:hover {
     height: 175px;
 }
 
+.pagination {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+.pagination a {
+    display: inline-block;
+    background: #ffffff;
+    margin: 0.2rem;
+    padding: 0.3rem 0.4rem;
+    text-decoration: none;
+    color: #525B64;
+}
+.pagination a.active {
+    background-color: #ffffff;
+    color: #525B64;
+}
+.pagination a:hover {
+    background-color: #6186AA;
+    color: #ffffff;
+} 
+
 /* version mobile */
 @media (max-width: 600px) {
     .squelette main {
@@ -317,3 +338,4 @@ a:hover {
         border-right: 0.6rem solid #ffffff;
     }
 }
+
