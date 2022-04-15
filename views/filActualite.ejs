@@ -2,7 +2,7 @@
 <html lang="fr">
 
 <head>
-    
+
     <script src="https://ajax.googleapis.com/ ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/ popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -28,40 +28,45 @@
                     </div>
 
                     <% skiSpots.forEach(skiSpot=>{%>
-                    <article class="liste-spot">
-                        <h2><a href="/details/<%= skiSpot._id %>"><%= skiSpot.name %></a></h2>
-                        <a href="#" title="Voir la catégorie <%= skiSpot.difficulty%>" class="difficulte"><%= skiSpot.difficulty%></a>
-                        <p class="description"><%= skiSpot.description%></p>
-                        <div class="pied">
-                            <p class="emplacement"><%= skiSpot.address%></p>
-                            <div class="bouton">
-                                <form action="/delete/<%= skiSpot._id %>?_method=DELETE" method="post">
-                                    <button type="submit" class="bouton-fonce"><img src="./images/bouton-supprimer.png" alt="Supprimer le site de ski"></button>
-                                </form>
-                                <form action="/details/<%= skiSpot._id %>" method="get">
-                                    <button>
-                                        Modifier
-                                    </button>
+                        <article class="liste-spot">
+                            <h2><a href="/details/<%= skiSpot._id %>">
+                                    <%= skiSpot.name %>
+                                </a></h2>
+                            <a href="#" title="Voir la catégorie <%= skiSpot.difficulty%>" class="difficulte">
+                                <%= skiSpot.difficulty%>
+                            </a>
+                            <p class="description">
+                                <%= skiSpot.description%>
+                            </p>
+                            <div class="pied">
+                                <p class="emplacement">
+                                    <%= skiSpot.address%>
+                                </p>
+                                <div class="bouton">
+                                    <form action="/delete/<%= skiSpot._id %>?_method=DELETE" method="post">
+                                        <button type="submit" class="bouton-fonce"><img
+                                                src="./images/bouton-supprimer.png"
+                                                alt="Supprimer le site de ski"></button>
+                                    </form>
+                                    <a href="/details/<%= skiSpot._id %>" class="bouton-fonce"><img
+                                            src="./images/bouton-editer.png" alt="Modifier le site de ski"></a>
 
-                                </form>
-                                <!-- <a href="/details/<%= skiSpot._id %>" class="bouton-fonce"><img src="./images/bouton-editer.png" alt="Modifier le site de ski"></a> -->
-                                <!-- 
-                                <form action="/details/<%= skiSpot._id %>" method="post">
-                                    <button type="submit"><img src="./images/bouton-editer.png" alt="Modifier le site de ski"></button>
-                                </form>
-                                -->
+                                </div>
                             </div>
-                        </div>
 
-                    </article>
-                    <%})%>
-                    <nav aria-label="Pagination des meilleurs spots de ski" class="pagination">
-                        <ul class="pagination justify-content-center">
-                            <% for( var i=1; i <=totalPages; i++){ %>
-                            <li class="page-item">
-                            <a href="/filActualite?limit=10&page=<%=i%>" class="page-link"><%= i %></a></li><%}%>
-                        </ul>
-                    </nav>
+                        </article>
+                        <%})%>
+                            <nav aria-label="Pagination des meilleurs spots de ski" class="pagination">
+                                <ul class="pagination justify-content-center">
+                                    <% for( var i=1; i <=totalPages; i++){ %>
+                                        <li class="page-item">
+                                            <a href="/filActualite?limit=10&page=<%=i%>" class="page-link">
+                                                <%= i %>
+                                            </a>
+                                        </li>
+                                        <%}%>
+                                </ul>
+                            </nav>
             </section>
             <aside>
                 <img src="../images/paysage-randonnee.jpg" alt="">
@@ -71,9 +76,11 @@
                     d’adhérence). Cela optimisera leur rendement. Vous manquez de temps et d’espace? Faites-le faire par
                     un technicien en boutique. Par la suite, il ne vous restera qu’à mettre votre fart d’adhérence de
                     jour, et le tour sera joué!</p>
-                <p>Pour ce qui est des skis sans fartage, il est conseillé de traiter quand même les zones de glisse.</p>
+                <p>Pour ce qui est des skis sans fartage, il est conseillé de traiter quand même les zones de glisse.
+                </p>
             </aside>
         </main>
     </div>
 </body>
+
 </html>

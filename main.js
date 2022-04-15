@@ -11,13 +11,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 
-
 if (typeof localStorage === "undefined" || localStorage === null) {
     var LocalStorage = require('node-localstorage').LocalStorage;
     localStorage = new LocalStorage('./localstorage');
 }
 
-app.get("/signup", homeController.getSignUp); 
+app.get("/signup", homeController.getSignUp);
 
 app.get("/signin", homeController.getSignIn);
 
@@ -40,7 +39,7 @@ app.get("/details/:id", homeController.details);
 app.put("/details/:id", homeController.Update);
 
 app.delete("/delete/:id", homeController.delete);
- 
-app.listen(3000, ()=>{
+
+app.listen(3000, () => {
     console.log("Votre serveur demarre par la porte 3000");
 });
