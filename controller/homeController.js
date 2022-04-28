@@ -197,11 +197,6 @@ exports.delete = (request, response) => {
         });
 }
 
-exports.AjoutAmis = (request, response) => {
-    response.render("ajoutAmis")
-};  
-
-
 exports.getAmis = (request, response) => {
     let query = request.query.search;
     let token = localStorage.getItem("token");
@@ -216,7 +211,7 @@ exports.getAmis = (request, response) => {
 
     axios(config)
         .then(function (res) {
-            response.render("listesAmis", {users: res.data.users});
+            response.render("ajoutAmis", {users: res.data.users});
             console.log(JSON.stringify(res.data));
         })
         .catch(function (error) {

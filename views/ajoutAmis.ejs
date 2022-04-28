@@ -19,7 +19,12 @@
                 <input type="text" name="search">
                 <input type="submit" value="Rechercher" style="background-color: aqua;">
             </form>
-            <div>        
+            <div>
+                <% users.forEach(element =>{%>
+
+                    <p><%= element.name %></p>
+                
+                   <%})%>     
               
             </div>
         </main>
