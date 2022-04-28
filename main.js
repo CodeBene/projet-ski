@@ -40,9 +40,8 @@ app.put("/details/:id", homeController.Update);
 
 app.delete("/delete/:id", homeController.delete);
 
-app.get("/ajoutAmis", homeController.AjoutAmis);
+app.get("/users/search/:query", homeController.getAmis);
 
-app.get("/users/search/:query", homeController.getAmis)
 
 app.listen(3000, () => {
     console.log("Votre serveur demarre par la porte 3000");
