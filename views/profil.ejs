@@ -14,18 +14,31 @@
             <p>Le&nbsp;Happy Skieur</p>
         </header>
         <main>
+            <div>
+                
+
+            </div>
             <section class="profil">
                 <article>
                     <h1>Informations personnelles</h1>
                     <div class="infos-profil">
                         <p>Nom</p>
                         <p>
-                            <%= name%>
+                            <%= profil.name%>
                         </p>
                         <p>Courriel</p>
                         <p>
-                            <%= email%>
+                            <%= profil.email%>
                         </p>
+                        <p>Listes de mes amis : </p>
+            
+                            <% friends.friends.forEach(element =>{%>
+                              <div>
+                                  <%= element.name %>
+                              </div>
+                            <%})%>
+                        
+
                     </div>
                     <div class="bouton">
                         <a href="#" title="Modifier ses informations personnelles" class="bouton-fonce">Modifier</a>
