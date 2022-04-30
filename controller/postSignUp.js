@@ -1,0 +1,24 @@
+const axios = require("axios");
+
+exports.postSignUp = (request, response) => {
+
+    const name = request.body.name;
+    const email = request.body.email;
+    const password = request.body.password;
+
+    var data = { name: name, email: email, password: password }
+
+    var config = {
+        method: 'post',
+        url: 'https://ski-api.herokuapp.com/signup',
+        headers: { 'Content-Type': 'application/json' },
+        data: JSON.stringify(data)
+    };
+    axios(config)
+        .then(function (res) {
+            response.render("profil", res.data);
+        })
+        .catch(function (error) {
+            console.log(error);
+        })
+};
