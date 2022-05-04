@@ -7,6 +7,7 @@ const methodOverride = require("method-override");
 const router = require("./routes/routes");
 
 app.set("view engine", "ejs");
+const expressLayouts = require("express-ejs-layouts");
 app.use(express.static("public"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
