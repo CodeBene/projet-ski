@@ -16,7 +16,7 @@ exports.postSignUp = (request, response) => {
     };
     axios(config)
         .then(function (res) {
-            response.render("profil", res.data);
+            response.render("signin", res.data);
         })
         .catch(function (error) {
             console.log(error);
