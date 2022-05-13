@@ -1,4 +1,9 @@
-<%- include('partials/header.ejs') %>
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <link rel="stylesheet" href="css/style.css">
+    <meta charset="utf-8">
     <title>Votre profil | Le Happy Skieur</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 </head>
@@ -18,10 +23,11 @@
                 <% users.forEach(element =>{%>
 
                     <p><%= element.name %></p>
+                 
                     <form method="post" action="/friend/<%= element.id %>">
                         <button>Ajouter</button>
-                    </form>
-                
+                    </form> 
+                    
                    <%})%>     
               
             </div>

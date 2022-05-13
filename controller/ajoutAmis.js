@@ -15,7 +15,7 @@ exports.ajouter = (request, response)=>{
     
     axios(config)
     .then(function (res) {
-        response.render("ajoutAmis", {users : res.data.users})
+        response.redirect('/profil');
         console.log(JSON.stringify(res.data));
     })
     .catch(function (error) {

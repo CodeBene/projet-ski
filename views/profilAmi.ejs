@@ -4,7 +4,7 @@
 <head>
     <link rel="stylesheet" href="css/style.css">
     <meta charset="utf-8">
-    <title>Votre profil | Le Happy Skieur</title>
+    <title>Profil de... | Le Happy Skieur</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 </head>
 
@@ -15,8 +15,7 @@
         </header>
         <main>
             <div>
-                
-
+            
             </div>
             <section class="profil">
                 <article>
@@ -26,22 +25,14 @@
                         <p>
                             <%= profil.name%>
                         </p>
-                        <p>Courriel</p>
-                        <p>
-                            <%= profil.email%>
-                        </p>
-                        <p>Listes de mes amis : </p>
-            
-                            <% friends.friends.forEach(element =>{%>
-                                <form method="get" action="/user/<%= element.id %>">
-                                  <button type="submit"><%= element.name %></button>
-                              </form>
-                            <%})%>
-                        
+                        <p>Listes d'amis : </p>
+                        <% friends.forEach(element =>{%>
+                            <form method="get" action="/user/<%= element.id %>">
+                              <button type="submit"><%= element.name %></button>
+                          </form>
+                        <%})%>
 
-                    </div>
-                    <div class="bouton">
-                        <a href="#" title="Modifier ses informations personnelles" class="bouton-fonce">Modifier</a>
+
                     </div>
                 </article>
                 <article>
@@ -49,8 +40,7 @@
                     <p>Découvre les meilleurs endroits pour faire du ski de randonnée avec tes amis et partage ceux que
                         tu préfères!</p>
                     <div class="bouton">
-                        <a href="/filActualite" title="Voir tous les spots de ski" class="bouton-fonce">Voir les
-                            spots</a>
+                        <a href="/filActualite" title="Voir tous les spots de ski" class="bouton-fonce">Voir les spots</a>
                         <a href="/create" title="Ajouter un spot de ski" class="bouton-fonce">Ajouter un spot</a>
                     </div>
                 </article>
