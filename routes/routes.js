@@ -17,6 +17,7 @@ const Delete = require("../controller/delete");
 const amis = require("../controller/amis"); 
 const ajoutAmis = require("../controller/ajoutAmis");
 const profilAmi = require("../controller/profilAmi");
+const deleteFriend = require("../controller/deleteFriend");
 
 //const homeController = require("../controller/homeController");
 
@@ -49,5 +50,7 @@ router.get("/users/search/:query", amis.getAmis);
 router.post("/friend/:id", ajoutAmis.ajouter);
 
 router.get("/user/:id", profilAmi.getProfilAmi);
+
+router.post("/deletefriend/:id", deleteFriend.deleteFriend);
 
 module.exports = router; 
