@@ -3,14 +3,13 @@ const axios = require("axios");
 exports.postSignIn = (request, response) => {
     const email = request.body.email;
     const password = request.body.password;
-
     var data = { email: email, password: password };
-
     var config = {
         method: 'post',
         url: 'https://ski-api.herokuapp.com/login',
         headers: { 'Content-Type': 'application/json' },
         data: JSON.stringify(data)
+        
     };
 
     axios(config)

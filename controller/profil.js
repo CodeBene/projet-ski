@@ -4,7 +4,7 @@ exports.getProfil = (request, response) => {
     let token = localStorage.getItem("token");
     var config = {
         method: 'get',
-        url: 'https://ski-api.herokuapp.com/tokeninfo',
+        url: 'https://ski-api.herokuapp.com/',
         headers: { 'Content-Type': 'application/json', 'Authorization': token },
         data: { 'token': token }
     };

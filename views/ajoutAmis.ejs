@@ -23,10 +23,11 @@
                 <% users.forEach(element =>{%>
 
                     <p><%= element.name %></p>
+                 
                     <form method="post" action="/friend/<%= element.id %>">
                         <button>Ajouter</button>
-                    </form>
-                
+                    </form> 
+                    
                    <%})%>     
               
             </div>
