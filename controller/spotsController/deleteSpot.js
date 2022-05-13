@@ -1,6 +1,6 @@
 const axios = require("axios");
 
-exports.delete = (request, response) => {
+exports.deleteSpot = (request, response) => {
 
     const id = request.params.id;
 

@@ -1,6 +1,6 @@
 const axios = require("axios");
 
-exports.createpost = (request, response) => {
+exports.createSpot = (request, response) => {
 
     const name = request.body.name;
     const description = request.body.description;

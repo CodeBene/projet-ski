@@ -1,6 +1,6 @@
 const axios = require("axios");
 
-exports.ajouter = (request, response)=>{
+exports.addFriends = (request, response)=>{
     const friendID = request.params.id;
     let token = localStorage.getItem("token");
     

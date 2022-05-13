@@ -1,56 +1,42 @@
 const express = require("express");
-
 const router = express.Router();
-
-const SignUp = require("../controller/SignUp");
-const signin = require("../controller/Signin");
 const index = require("../controller/index");
-const profil = require("../controller/profil");
-const postSignin = require("../controller/postSignin");
-const postSignUp = require("../controller/postSignUp");
 const filActualite = require("../controller/filActualite");
-const create = require("../controller/create");
-const createpost = require("../controller/createpost");
-const details = require("../controller/details");
-const Update = require("../controller/update");
-const Delete = require("../controller/delete");
-const amis = require("../controller/amis"); 
-const ajoutAmis = require("../controller/ajoutAmis");
-const profilAmi = require("../controller/profilAmi");
-const deleteFriend = require("../controller/deleteFriend");
+//authentification/profil
+const myProfile = require("../controller/authentificationController/myProfile");
+const otherUserProfile = require("../controller/friendsController/otherUserProfile");
+const signUp = require("../controller/authentificationController/signUp");
+const postSignUp = require("../controller/authentificationController/postSignUp");
+const signin = require("../controller/authentificationController/signin");
+const postSignin = require("../controller/authentificationController/postSignin");
+//friends features
+const addFriends = require("../controller/friendsController/addFriends");
+const searchFriends = require("../controller/friendsController/searchFriends"); 
+const deleteFriend = require("../controller/friendsController/deleteFriend");
+//spots features
+const getCreateSpot = require("../controller/spotsController/getCreateSpot");
+const createSpot = require("../controller/spotsController/createSpot");
+const getSpot = require("../controller/spotsController/getSpot");
+const updateSpot = require("../controller/spotsController/updateSpot");
+const deleteSpot = require("../controller/spotsController/deleteSpot");
 
 //const homeController = require("../controller/homeController");
 
-router.get("/signup", SignUp.getSignUp);
-
+router.get("/signup", signUp.getSignUp);
 router.get("/signin", signin.getSignIn);
-
 router.get("/", index.getIndex);
-
-router.get("/profil", profil.getProfil);
-
+router.get("/profil", myProfile.getMyProfile);
 router.post("/signin", postSignin.postSignIn);
-
 router.post("/signup", postSignUp.postSignUp);
-
 router.get("/filActualite", filActualite.getfilActualite);
-
-router.get("/create", create.create);
-
-router.post("/create", createpost.createpost);
-
-router.get("/details/:id", details.details);
-
-router.put("/details/:id", Update.Update);
-
-router.delete("/delete/:id", Delete.delete);
-
-router.get("/users/search/:query", amis.getAmis);
-
-router.post("/friend/:id", ajoutAmis.ajouter);
-
-router.get("/user/:id", profilAmi.getProfilAmi);
-
-router.post("/deletefriend/:id", deleteFriend.deleteFriend);
+router.get("/create", getCreateSpot.getCreateSpot);
+router.post("/create", createSpot.createSpot);
+router.get("/spot/:id", getSpot.getSpot);
+router.put("/spot/:id", updateSpot.updateSpot);
+router.delete("/delete/:id", deleteSpot.deleteSpot);
+router.get("/users/search/:query", searchFriends.getFriends);
+router.post("/friend/:id", addFriends.addFriends);
+router.get("/user/:id", otherUserProfile.getOtherUserProfile);
+router.delete("/unfriend/:id", deleteFriend.deleteFriend);
 
 module.exports = router; 
