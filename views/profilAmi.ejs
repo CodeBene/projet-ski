@@ -24,6 +24,9 @@
                         <p>Nom</p>
                         <p>
                             <%= profil.name%>
+                            <form method="post" action="/friend/<%= profil.id %>">
+                                <button>Ajouter</button>
+                            </form> 
                         </p>
                         <p>Listes d'amis : </p>
                         <% friends.forEach(element =>{%>
@@ -32,8 +35,6 @@
                             <button>Ajouter</button>
                         </form> 
                         <%})%>
-
-
                     </div>
                 </article>
                 <article>
