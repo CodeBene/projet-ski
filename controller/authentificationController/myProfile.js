@@ -1,6 +1,6 @@
 const axios = require("axios");
 
-exports.getProfil = (request, response) => {
+exports.getMyProfile = (request, response) => {
     let token = localStorage.getItem("token");
     var config = {
         method: 'get',

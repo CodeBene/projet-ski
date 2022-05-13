@@ -1,6 +1,6 @@
 const axios = require("axios");
 
-exports.Update = (request, response) => {
+exports.updateSpot = (request, response) => {
     const name = request.body.name;
     const description = request.body.description;
     const address = request.body.address;
@@ -20,7 +20,7 @@ exports.Update = (request, response) => {
 
     axios(config)
         .then(function (res) {
-            response.redirect("/create")
+            response.redirect("/createSpot")
         })
         .catch(function (error) {
             console.log(error);

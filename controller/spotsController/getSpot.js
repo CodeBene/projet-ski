@@ -1,6 +1,6 @@
 const axios = require("axios");
 
-exports.details = (request, response) => {
+exports.getSpot = (request, response) => {
     const id = request.params.id;
 
     let token = localStorage.getItem("token");
@@ -12,7 +12,7 @@ exports.details = (request, response) => {
     };
     axios(config)
         .then(function (res) {
-            response.render("details", res.data)
+            response.render("spot", res.data)
         })
         .catch(function (error) {
             console.log(error);

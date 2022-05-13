@@ -20,7 +20,7 @@
 
                     <% skiSpots.forEach(skiSpot=>{%>
                         <article class="liste-spot">
-                            <h2><a href="/details/<%= skiSpot._id %>">
+                            <h2><a href="/spot/<%= skiSpot._id %>">
                                     <%= skiSpot.name %>
                                 </a></h2>
                             <a href="#" title="Voir la catégorie <%= skiSpot.difficulty%>" class="difficulte">
@@ -39,7 +39,7 @@
                                                 src="./images/bouton-supprimer.png"
                                                 alt="Supprimer le site de ski"></button>
                                     </form>
-                                    <a href="/details/<%= skiSpot._id %>" class="bouton-fonce"><img
+                                    <a href="/spot/<%= skiSpot._id %>" class="bouton-fonce"><img
                                             src="./images/bouton-editer.png" alt="Modifier le site de ski"></a>
 
                                 </div>

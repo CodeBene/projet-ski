@@ -34,7 +34,7 @@
             
                             <% friends.friends.forEach(element =>{%>
                                 <a href="/user/<%= element.id %>"><%= element.name %></a>
-                                <form action="/deletefriend/<%= element.id %>" method="post">  
+                                <form action="/unfriend/<%= element.id %>?_method=DELETE" method="post">  
                                     <button type="submit">Delete</button>
                                 </form> 
                             <%})%>

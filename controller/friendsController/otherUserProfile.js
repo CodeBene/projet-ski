@@ -1,6 +1,6 @@
 const axios = require("axios");
 
-exports.getProfilAmi = (request, response) => {
+exports.getOtherUserProfile = (request, response) => {
     const id = request.params.id;
     let token = localStorage.getItem("token");
     var config = {
@@ -19,7 +19,7 @@ exports.getProfilAmi = (request, response) => {
 
                   axios(config)
                   .then(function (res2) {
-                    response.render("profilAmi", {profil: res.data.user, friends : res2.data.friends})
+                    response.render("otherUserProfile", {profil: res.data.user, friends : res2.data.friends})
                     console.log(JSON.stringify(res2.data));
                   })
                   .catch(function (error) {

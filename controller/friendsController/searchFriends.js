@@ -1,7 +1,7 @@
 //recherche d'amis et affichag
 const axios = require("axios");
 
-exports.getAmis = (request, response) => {
+exports.getFriends = (request, response) => {
   let query = request.query.search;
   let token = localStorage.getItem("token");
 
@@ -15,7 +15,7 @@ exports.getAmis = (request, response) => {
 
   axios(config)
       .then(function (res) {
-          response.render("ajoutAmis", {users: res.data.users});
+          response.render("addFriends", {users: res.data.users});
           console.log(JSON.stringify(res.data));
       })
       .catch(function (error) {
@@ -38,7 +38,7 @@ exports.verifyAlreadyFriend = (request, response)=>{
   
   axios(config)
   .then(function (res) {
-    res.render("ajoutAmis", {already: res.data.friends});
+    res.render("addFriends", {already: res.data.friends});
     
       
       console.log(already);
