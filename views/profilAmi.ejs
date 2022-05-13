@@ -27,9 +27,10 @@
                         </p>
                         <p>Listes d'amis : </p>
                         <% friends.forEach(element =>{%>
-                            <form method="get" action="/user/<%= element.id %>">
-                              <button type="submit"><%= element.name %></button>
-                          </form>
+                            <a href="/user/<%= element.id %>"><%= element.name %></a>
+                          <form method="post" action="/friend/<%= element.id %>">
+                            <button>Ajouter</button>
+                        </form> 
                         <%})%>
 
 
