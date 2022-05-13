@@ -33,9 +33,10 @@
                         <p>Listes de mes amis : </p>
             
                             <% friends.friends.forEach(element =>{%>
-                                <form method="get" action="/user/<%= element.id %>">
-                                  <button type="submit"><%= element.name %></button>
-                              </form>
+                                <a href="/user/<%= element.id %>"><%= element.name %></a>
+                                <form action="/deletefriend/<%= element.id %>" method="post">  
+                                    <button type="submit">Delete</button>
+                                </form> 
                             <%})%>
                         
 
