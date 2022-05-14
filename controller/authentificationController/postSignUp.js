@@ -7,10 +7,11 @@ exports.postSignUp = (request, response) => {
     const password = request.body.password;
 
     var data = { name: name, email: email, password: password }
+    console.log(data);
 
     var config = {
         method: 'post',
-        url: 'https://ski-api.herokuapp.com/signup',
+        url: 'http://ski-api.herokuapp.com/signup',
         headers: { 'Content-Type': 'application/json' },
         data: JSON.stringify(data)
     };

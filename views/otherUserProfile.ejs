@@ -24,16 +24,20 @@
                         <p>Nom</p>
                         <p>
                             <%= profil.name%>
-                            <form method="post" action="/friend/<%= profil.id %>">
-                                <button>Ajouter</button>
-                            </form> 
+                            <% if (!profil.alreadyFriend) { %>
+                                <form method="post" action="/friend/<%= profil.id %>">
+                                    <button>Ajouter</button>
+                                </form>
+                            <%}%> 
                         </p>
                         <p>Listes d'amis : </p>
                         <% friends.forEach(element =>{%>
                             <a href="/user/<%= element.id %>"><%= element.name %></a>
-                          <form method="post" action="/friend/<%= element.id %>">
-                            <button>Ajouter</button>
-                        </form> 
+                            <% if (!element.alreadyFriend) { %>
+                                <form method="post" action="/friend/<%= element.id %>">
+                                    <button>Ajouter</button>
+                                </form> 
+                            <%}%>
                         <%})%>
                     </div>
                 </article>

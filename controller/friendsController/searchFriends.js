@@ -15,8 +15,28 @@ exports.getFriends = (request, response) => {
 
   axios(config)
       .then(function (res) {
-          response.render("addFriends", {users: res.data.users});
-          console.log(JSON.stringify(res.data));
+        var config2 = {
+          method: 'get',
+          url: 'http://ski-api.herokuapp.com/friend',
+          headers: {'Content-Type': 'application/json', 'Authorization': token}
+        };
+        axios(config2)
+        .then(function (r) {
+          let myFriends = r.data.friends.map(x => x.id);
+          let result = res.data.users;
+          result.forEach(element => {
+            if (myFriends.includes(element.id))
+              element.alreadyFriend = true;
+            else element.alreadyFriend = false;
+          });
+          response.render("addFriends", {users: result});
+        })
+        .catch(function (err) {
+          console.log(err);
+        });
+
+          //response.render("addFriends", {users: res.data.users});
+          //console.log(JSON.stringify(res.data));
       })
       .catch(function (error) {
           console.log(error);
@@ -24,7 +44,7 @@ exports.getFriends = (request, response) => {
 
 }
 
-exports.verifyAlreadyFriend = (request, response)=>{
+/*exports.verifyAlreadyFriend = (request, response)=>{
   let token = localStorage.getItem("token");
   
   // var data = {friendId : friendID};
@@ -47,14 +67,5 @@ exports.verifyAlreadyFriend = (request, response)=>{
   .catch(function (error) {
     console.log(error);
   });
-  }
-
-
-    
-              
-             
-           
-            
-        
-        
-
+  } */
+  

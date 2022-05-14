@@ -19,8 +19,33 @@ exports.getOtherUserProfile = (request, response) => {
 
                   axios(config)
                   .then(function (res2) {
-                    response.render("otherUserProfile", {profil: res.data.user, friends : res2.data.friends})
-                    console.log(JSON.stringify(res2.data));
+                    let config = {
+                      method: 'get',
+                      url: 'http://ski-api.herokuapp.com/friend/',
+                      headers: {'Content-Type': 'application/json', 'Authorization': token}
+                    };
+                    axios(config)
+                    .then(function (res3) {
+                      let myFriends = res3.data.friends.map(x => x.id);
+                      let user = res.data.user;
+                      if (myFriends.includes(user.id))
+                        user.alreadyFriend = true;
+                      else user.alreadyFriend = false;
+                      let result = res2.data.friends;
+                      result.forEach(element => {
+                      if (myFriends.includes(element.id))
+                        element.alreadyFriend = true;
+                      else element.alreadyFriend = false;
+                      });
+                      console.log(result);
+                      response.render("otherUserProfile", {profil: user, friends : result});
+                    })
+                    .catch(function (error) {
+                      console.log(error);
+                    });
+
+                    //response.render("otherUserProfile", {profil: res.data.user, friends : res2.data.friends})
+                    //console.log(JSON.stringify(res2.data));
                   })
                   .catch(function (error) {
                     console.log(error);
