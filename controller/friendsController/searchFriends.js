@@ -38,7 +38,7 @@ exports.verifyAlreadyFriend = (request, response)=>{
   
   axios(config)
   .then(function (res) {
-    res.render("addFriends", {already: res.data.friends});
+    res.render("addFriends");
     
       
       console.log(already);
