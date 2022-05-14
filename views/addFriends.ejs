@@ -22,13 +22,13 @@
             <div>
                 <% users.forEach(element =>{%>
 
-                    <p><%= element.name %></p>
-                 
-                    <form method="post" action="/friend/<%= element.id %>">
-                        <button>Ajouter</button>
-                    </form> 
-                    
-                   <%})%>     
+                    <p><a href="/user/<%= element.id %>"><%= element.name %></a></p>
+                    <% if (!element.alreadyFriend) { %>
+                        <form method="post" action="/friend/<%= element.id %>">
+                            <button>Ajouter</button>
+                        </form> 
+                    <%}%>
+                <%})%>     
               
             </div>
         </main>
