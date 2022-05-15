@@ -43,9 +43,6 @@ exports.getOtherUserProfile = (request, response) => {
             .catch(function (error) {
               console.log(error);
             });
-
-          //response.render("otherUserProfile", {profil: res.data.user, friends : res2.data.friends})
-          //console.log(JSON.stringify(res2.data));
         })
         .catch(function (error) {
           console.log(error);

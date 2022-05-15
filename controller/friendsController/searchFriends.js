@@ -34,37 +34,9 @@ exports.getFriends = (request, response) => {
         .catch(function (err) {
           console.log(err);
         });
-
-      //response.render("addFriends", {users: res.data.users});
-      //console.log(JSON.stringify(res.data));
     })
     .catch(function (error) {
       console.log(error);
     });
 
 }
-
-/*exports.verifyAlreadyFriend = (request, response)=>{
-  let token = localStorage.getItem("token");
-  
-  // var data = {friendId : friendID};
-  // var data = res.data.friends;
-  var config = {
-    method: 'get',
-    url: 'http://ski-api.herokuapp.com/friend',
-    headers: {'Content-Type': 'application/json', 'Authorization': token},
-    // data : data
-  };
-  
-  axios(config)
-  .then(function (res) {
-    res.render("addFriends", {already: res.data.friends});
-    
-      
-      console.log(already);
-      // console.log(JSON.stringify(res.data));
-  })
-  .catch(function (error) {
-    console.log(error);
-  });
-  } */
