@@ -1,36 +1,67 @@
-<!DOCTYPE html>
-<html lang="fr">
-
-<head>
-    <link rel="stylesheet" href="css/style.css">
-    <meta charset="utf-8">
-    <title>Votre profil | Le Happy Skieur</title>
+<%- include('partials/header.ejs') %>
+    <title>Chercher un ami | Le Happy Skieur</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 </head>
 
 <body class="squelette">
     <div>
-        <header>
-            <p>Le&nbsp;Happy Skieur</p>
-        </header>
+        <%- include('partials/menu.ejs') %>        
         <main>
-            <form action="/users/search/:query" method="get">
-                <label>Recherche des amis</label>
-                <input type="text" name="search">
-                <input type="submit" value="Rechercher" style="background-color: aqua;">
-            </form>
-            <div>
-                <% users.forEach(element =>{%>
-
-                    <p><a href="/user/<%= element.id %>"><%= element.name %></a></p>
-                    <% if (!element.alreadyFriend) { %>
-                        <form method="post" action="/friend/<%= element.id %>">
-                            <button>Ajouter</button>
-                        </form> 
-                    <%}%>
-                <%})%>     
-              
-            </div>
+            <section class="search">
+                <article>
+                    <h1>Chercher un ami</h1>
+                    <form action="/users/search/:query" method="get" class="bouton">
+                        <input type="text" name="search">
+                        <button type="submit" class="bouton-fonce">Lancer la recheche</button>
+                    </form>
+                </article>
+                <article>
+                    <div>
+                        <% if (users.length == 0) {%>
+                            Aucun résultat
+                        <%}%>
+                        <% users.forEach(element =>{%>
+                            <div class="liste-amis-profil">
+                                <div><a href="/user/<%= element.id %>"><%= element.name %></a></div>
+                                <div>
+                                    <a href="/user/<%= element.id %>">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
+                                        <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
+                                        <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
+                                      </svg></a>
+                                      <% if (!element.alreadyFriend) { %>
+                                        <a href="/friend/<%= element.id %>">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-plus-fill" viewBox="0 0 16 16">
+                                            <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                                            <path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
+                                        </svg></a>
+                                    <%} else {%>
+                                        <a href="/unfriend/<%= element.id %>">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-plus-fill" viewBox="0 0 16 16">
+                                                <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z"/>
+                                            </svg></a>
+                                    <%}%>
+                                </div>
+                            </div>
+                        <%})%>
+                    </div>
+                </article>
+            </section>
+            <aside>
+                <img src="/images/paysage-randonnee2.jpg" alt="">
+                <h1>Le saviez-vous ?</h1>
+                <p>Le ski arrive en tête de liste des loisirs d’hiver au Québec. Nous vous proposons donc un top des
+                    meilleurs endroits pour skier au Québec !</p>
+                <p>Vous le savez, le ski de fond est un excellent exercice cardiovasculaire. Pour que votre saison soit
+                    optimale et pour éviter les courbatures et la fatigue du début, ne laissez pas l’automne vous
+                    arrêter de bouger.</p>
+                <p>Pendant au moins 30 minutes, 3 fois par semaine, prenez des marches lentes et rapides ou continuez la
+                    course à pied par intervalle. Si les conditions ne le permettent pas, optez pour le vélo
+                    stationnaire ou l’elliptique, mais essayez de sortir dehors le plus possible pour habituer votre
+                    corps et vos poumons au changement de température. Si vous habitez près de Québec, vous pouvez venir
+                    monter et descendre les 487 marches de l’escalier panoramique qui relie le haut et le bas de la
+                    chute Montmorency.</p>
+            </aside>
         </main>
     </div>
 </body>

@@ -11,7 +11,7 @@ const signin = require("../controller/authentificationController/signin");
 const postSignin = require("../controller/authentificationController/postSignin");
 //friends features
 const addFriends = require("../controller/friendsController/addFriends");
-const searchFriends = require("../controller/friendsController/searchFriends"); 
+const searchFriends = require("../controller/friendsController/searchFriends");
 const deleteFriend = require("../controller/friendsController/deleteFriend");
 //spots features
 const getCreateSpot = require("../controller/spotsController/getCreateSpot");
@@ -19,8 +19,6 @@ const createSpot = require("../controller/spotsController/createSpot");
 const getSpot = require("../controller/spotsController/getSpot");
 const updateSpot = require("../controller/spotsController/updateSpot");
 const deleteSpot = require("../controller/spotsController/deleteSpot");
-
-//const homeController = require("../controller/homeController");
 
 router.get("/signup", signUp.getSignUp);
 router.get("/signin", signin.getSignIn);
@@ -36,7 +34,9 @@ router.put("/spot/:id", updateSpot.updateSpot);
 router.delete("/delete/:id", deleteSpot.deleteSpot);
 router.get("/users/search/:query", searchFriends.getFriends);
 router.post("/friend/:id", addFriends.addFriends);
+router.get("/friend/:id", addFriends.addFriends);
 router.get("/user/:id", otherUserProfile.getOtherUserProfile);
 router.delete("/unfriend/:id", deleteFriend.deleteFriend);
+router.get("/unfriend/:id", deleteFriend.deleteFriend);
 
 module.exports = router; 

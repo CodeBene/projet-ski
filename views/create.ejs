@@ -1,19 +1,17 @@
-    <%- include('partials/header.ejs') %>
+<%- include('partials/header.ejs') %>
     <title>Ajouter un spot de ski | Le Happy Skieur</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 </head>
 <body class="squelette">
     <div>
-        <header>
-            <p>Le&nbsp;Happy Skieur</p>
-        </header>
+        <%- include('partials/menu.ejs') %>
         <main>
             <section>
                 <h1>Ajouter un spot de ski</h1>
                 <form method="post" action="/create">
                     <label for="name">Nom</label>
                     <input type="text" name="name" required>
-                    <label for="difficulty">Difficulté</label>
+                    <label for="difficulty">Difficulté (facile, intermédiaire ou difficile</label>
                     <input type="text" name="difficulty" required>
                     <label for="description">Description</label>
                     <textarea name="description" required></textarea>
