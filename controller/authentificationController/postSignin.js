@@ -9,7 +9,7 @@ exports.postSignIn = (request, response) => {
         url: 'https://ski-api.herokuapp.com/login',
         headers: { 'Content-Type': 'application/json' },
         data: JSON.stringify(data)
-        
+
     };
 
     axios(config)

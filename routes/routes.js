@@ -11,7 +11,7 @@ const signin = require("../controller/authentificationController/signin");
 const postSignin = require("../controller/authentificationController/postSignin");
 //friends features
 const addFriends = require("../controller/friendsController/addFriends");
-const searchFriends = require("../controller/friendsController/searchFriends"); 
+const searchFriends = require("../controller/friendsController/searchFriends");
 const deleteFriend = require("../controller/friendsController/deleteFriend");
 //spots features
 const getCreateSpot = require("../controller/spotsController/getCreateSpot");
