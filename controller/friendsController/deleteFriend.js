@@ -3,9 +3,7 @@ const axios = require("axios");
 exports.deleteFriend = (request, response)=>{
     const id = request.params.id;
     let token = localStorage.getItem("token");
-    
-    // var data = {friendId : friendId};
-    
+        
     var config = {
       method: 'delete',
       url: 'http://ski-api.herokuapp.com/friend/' + id,

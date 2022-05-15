@@ -12,7 +12,7 @@ exports.createSpot = (request, response) => {
 
     var config = {
         method: 'post',
-        url: 'https://ski-api.herokuapp.com/ski-spot',
+        url: 'http://ski-api.herokuapp.com/ski-spot',
         headers: { 'Content-Type': 'application/json', 'Authorization': token },
         data: data
     };

@@ -5,9 +5,7 @@
 
 <body class="squelette">
     <div>
-        <header>
-            <p>Le&nbsp;Happy Skieur</p>
-        </header>
+        <%- include('partials/menu.ejs') %>
         <main>
             <section>
                 <h1>Mettre à jour le spot de ski</h1>
@@ -21,7 +19,7 @@
                     <label for="address">Localisation</label>
                     <input type="text" name="address" value="<%= skiSpot.address %>" required="required">
                     <div class="bouton align-center margin-top">
-                        <button type="submit" class="bouton-fonce">Modifier le spot</button>
+                        <button type="submit" class="bouton-fonce">Valider la modification</button>
                         <a href="/filActualite" title="Annuler" class="bouton-clair">Annuler</a>
                     </div>
                 </form>

@@ -33,6 +33,7 @@ p {
 }
 a {
     color: #525B64;
+    text-decoration: underline;
 }
 a:hover {
     color: #6186AA;
@@ -139,16 +140,20 @@ a:hover {
 /* Page standard */
 .squelette header {
     width: 100%;
-    height: 280px;
+    height: 370px;
     padding: 0;
     background-image: url(/images/imgHeader.png);
     background-size: cover;
     background-repeat: no-repeat;
     background-color: #A4B8C9;
     background-position: center;
-    display: flex;
-    align-items: flex-start;
 }
+
+.squelette header div {
+    height: 288px;
+    width: 100%;
+}
+
 .squelette header p {
     font-family: Quicksand, sans-serif;
     font-size: 6.5rem;
@@ -156,13 +161,45 @@ a:hover {
     width: 360px;
     padding-top: 90px;
     padding-left: 30px;
-    color: #ffffff;
     text-shadow: 0.02em 0.02em 0.05em rgb(78, 78, 78);
+}
+.squelette header p a {
+    color: #ffffff;
     text-decoration: none;
 }
 .squelette header p::first-line {
     font-size: 3.5rem;
 }
+
+.squelette header nav {
+    width: 100%;
+    background-color: rgba(112, 140, 164, 0.65);
+}
+
+.squelette header ul {
+    height: 82px;
+    padding: 0 10px 0 30px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+.squelette header ul li {
+    line-height: 1.3rem;
+    padding: 0 10px 0 0;
+
+}
+.squelette header nav a { 
+    text-transform: uppercase;
+    color: #fff;
+    text-decoration: none; 
+    padding-right: 20px; 
+    font-weight: bold;
+    text-shadow: 0.02em 0.02em 0.05em rgb(78, 78, 78);
+} 
+.squelette header nav a:hover { 
+    text-decoration: underline;
+}
+
 .squelette main {
     padding: 0.6rem 0 0 0.6rem;
     display: flex;
@@ -188,6 +225,7 @@ a:hover {
 .squelette main>aside {
     width: 35%;
 }
+
 /* Page profil */
 .squelette .profil article {
     margin: 0 0 2rem 0;
@@ -196,11 +234,25 @@ a:hover {
     display: flex;
     flex-wrap: wrap;
 }
+.squelette .profil div p {
+   margin-bottom: 0;
+}
 .squelette .profil div p:nth-child(odd) {
     width: 20%;
 }
 .squelette .profil div p:nth-child(even) {
     width: 80%;
+}
+.squelette .liste-amis-profil  {
+    width: 100%;
+    padding: 10px 0;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    border-bottom: 1px solid #E1E3E9;
+}
+.squelette .liste-amis-profil div a:first-child  {
+    margin-right: 20px;
 }
 
 /* Page feed */
@@ -227,7 +279,9 @@ a:hover {
 }
 .squelette .feed article .difficulte {
     padding: 0.3rem;
+    margin-bottom: 1rem;
     width: 25%;
+    min-width: 120px;
     text-align: center;
     background: #9BB1BE;
     font-size: 0.8em;
@@ -242,13 +296,20 @@ a:hover {
 }
 .squelette .liste-spot .description {
     width: 100%;
+    padding: 0;
+}
+.squelette .liste-spot .emplacement {
+    color: #8A96A0;
+    font-size: 0.9rem;
+    padding-bottom: 10px;
 }
 .squelette .feed .bouton  {
+    width: 100%;
     display: flex;
-    justify-content: flex-end;
+    flex-wrap: nowrap;
 }
 .squelette .feed .bouton a {
-    margin: 0 0 1rem 1rem;
+    margin: 0 0;
 }
 .squelette .liste-spot .bouton form {
     margin: 0;
@@ -256,28 +317,9 @@ a:hover {
 }
 .squelette .feed .liste-spot button, 
 .squelette .liste-spot .bouton a {
-    padding:  0.4rem 0.4rem 0.5rem;
-    margin: 0 0 0 0.4rem;
+    padding:  0.4rem 1rem 0.5rem;
+    margin: 0 0.6rem 0 0;
     border: 0;
-}
-.squelette .liste-spot .bouton img {
-    width: 19px;
-    height: 19px;
-}
-.pied {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-.squelette .liste-spot .emplacement {
-    background-image: url(/images/icone-emplacement.png);
-    background-repeat: no-repeat;
-    background-position: 0 0;
-    padding-left: 3rem;
-    padding-top: 0.2rem;
-    color: #8A96A0;
-    font-size: 0.9rem;
 }
 
 /* Page ajout */
@@ -285,7 +327,7 @@ a:hover {
     display: flex;
     flex-direction: column;
     margin: 0 0 0.6rem 0;
-    padding: 30px 0;
+    padding: 0;
 }
 .squelette input,
 .squelette textarea,
@@ -325,6 +367,26 @@ a:hover {
     background-color: #6186AA;
     color: #ffffff;
 } 
+
+/* Page de recherche */
+.search form {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    padding-bottom: 20px;
+}
+
+.search input {
+    width: 100%;
+    margin: 0 0.5rem 0 0;
+    border: 2px solid #ffffff;
+}
+
+.search button {
+    width: 20rem;
+    margin: 0;
+}
 
 /* version mobile */
 @media (max-width: 600px) {

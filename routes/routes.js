@@ -20,8 +20,6 @@ const getSpot = require("../controller/spotsController/getSpot");
 const updateSpot = require("../controller/spotsController/updateSpot");
 const deleteSpot = require("../controller/spotsController/deleteSpot");
 
-//const homeController = require("../controller/homeController");
-
 router.get("/signup", signUp.getSignUp);
 router.get("/signin", signin.getSignIn);
 router.get("/", index.getIndex);
@@ -36,7 +34,9 @@ router.put("/spot/:id", updateSpot.updateSpot);
 router.delete("/delete/:id", deleteSpot.deleteSpot);
 router.get("/users/search/:query", searchFriends.getFriends);
 router.post("/friend/:id", addFriends.addFriends);
+router.get("/friend/:id", addFriends.addFriends);
 router.get("/user/:id", otherUserProfile.getOtherUserProfile);
 router.delete("/unfriend/:id", deleteFriend.deleteFriend);
+router.get("/unfriend/:id", deleteFriend.deleteFriend);
 
 module.exports = router; 
